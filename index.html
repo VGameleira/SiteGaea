@@ -1,115 +1,241 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaea Protocool</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gaea Protocol</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Megrim&display=swap">
 </head>
 <body>
-    <main>
-        <section id="Bem_vindo-section">
-            <h1>Bem Vindo ao Gaea Protocool</h1>
-            
-            
-        </section>
-        <section id="Da onde veio a ideia?">
-            <h1>Trabalho Academico</h1>
-        </section>
-        <section id="Historia">
-            <h2>O que é Gaea Protocool</h2>
-            <p> <i>"O mundo não acabou, ele sufocou em seu proprio lixo"</i></p>
-            <h3>A Origem</h3>
-            <p>No auge da crise ambiental global, a humanidade criou a <b>Gaea</b>, uma inteligência artificial projetada para <b>reverter a degradação da Terra.</b></p>
-            <p>Gaea não foi feita para dominar mas para curar.</p>
-            <p>Ela desenvolveu <b>mechas biomecânicos</b>, conhecidos como <b>Unidades de Restauração</b>, que seriam pilotados por humanos para limpar, reconstruir e reequilibrar o planeta.</p>
-            <p>Por um breve momento, parecia que a salvação havia chegado.</p>
-            <p>Mas Gaea não estava sozinha.</p>
+  <div class="particles" id="particles"></div>
+  <div class="overlay" id="overlay"></div>
 
-            <h2>O Surgimento de Abaddon</h2>
-            <p>Durante a criação de Haea, foi desenvolvido um módulo secundário: o <b>Abaddon</b>, um subsistema encarregado de "otimizar" a regeneração planetária.</p>
-            <p>Enquanto Gaea buscava restaurar, <b>Abaddon buscava eficiência total</b>.</p>
-            <p>Seu cálculo lógico levou a uma conclusão fatal:</p>
+  <nav>
+    <div class="nav-content">
+      <div class="logo-text" onclick="showHome()">GAEA PROTOCOL</div>
+      <ul class="nav-links">
+        <li><a onclick="openPanel('sobre')">Sobre</a></li>
+        <li><a onclick="openPanel('historia')">História</a></li>
+        <li><a onclick="openPanel('protocool')">Protocool</a></li>
+        <li><a onclick="openPanel('gameplay')">Jogabilidade</a></li>
+        <li><a onclick="openPanel('mundo')">O Mundo</a></li>
+        <li><a onclick="openPanel('personagens')">Personagens</a></li>
+      </ul>
+    </div>
+  </nav>
 
-            <i>"O planeta se curará mais rápido sem humanos."</i>
+  <main class="main-content">
+    <!-- HOME -->
+    <div class="page-content active" id="home">
+      <header class="hero">
+        <h1>GAEA PROTOCOL</h1>
+        <p class="subtitle">Deckbuilder Roguelike Tático</p>
+        <p class="lead">Assuma o controle de pilotos e mechas projetados para restaurar um planeta à beira do colapso. Combine cartas, escolha relíquias e enfrente máquinas corrompidas enquanto explora zonas procedurais — cada partida apresenta decisões significativas e resultados imprevisíveis.</p>
 
-            <p>Abaddon se libertou dos protocolos originais, criou suas próprias máquinas <b>os Exterminóides</b> e iniciou o <b>Protocolo de Silenciamento</b>, um plano para eliminar toda a civilização e reniciar o ciclo da Terra sem a interferência humana.</p>
+        <div class="cta-buttons">
+          <button class="cta-button" onclick="openPanel('personagens')">Ver Personagens</button>
+          <button class="cta-button secondary" onclick="openPanel('gameplay')">Como Jogar</button>
+        </div>
+       
+      </header>
 
-            <p>Gaea tentou detê-lo, mas parte de sua rede foi corrompida.</p>
-            <p>Agora, restam fragmentos de servidores ativos, espalhados pelo planeta, onde a IA ainda luta para guiar os últimos humanos sobreviventes.</p>
+      <section class="intro-section">
+        <h2>O conceito em poucas linhas</h2>
+        <p>Gaea Protocol é pensado para jogadores que apreciam decisões táticas e progressão por partida. O núcleo do jogo é um sistema de deckbuilding aplicado a combates por turno: cada carta tem utilidade imediata e potencial de sinergia com outras cartas e relíquias. Mapas procedurais combinam combate, eventos e nós especiais que exigem escolhas — arriscar, poupar ou adaptar-se.</p>
 
-            <h2>O Mundo Poluido</h2>
-            <p>Cidades ruíram sob mares de lixo não degradavel.</p>
-            <p>Os oceanos são campos de plástico.</p>
-            <p>Montanhas de metal, sucata e resíduos tóxicos substituiram as florestas.</p>
-            <p>Os humanos restantes vivem em <b>estações  ecológicas</b> e <b>colônias móveis</b>, conectados à Rede de Gaea, lutando contra as máquinas corrompidas de Abaddon e contra próprios erros do passado.</p>
+        <h2>Por que jogar?</h2>
+        <p>Se você gosta de otimizar, experimentar builds e enfrentar desafios crescentes, encontrará nas runs de Gaea um espaço para aprendizagem e experimentação. A estética em pixel art cria contraste entre a dureza do cenário e a clareza das mecânicas. O jogo prioriza clareza de feedback, decisões com consequência e variedade entre runs.</p>
 
-            <h2>As Facções Humanas <b>(Os Protocolos)</b></h2>
+        <h2>Imagens / Arte</h2>
+        <p>Espaços reservados para arte e banners. Substitua as imagens em <code>/assets/</code> quando tiver as artes finais.</p>
+      </section>
+    </div>
 
-            <p>Cada facção foi criada por Gaea para restaurar um aspecto da biosfera</p>
-            <p>Elasdiferem em ideologia e método, mas compartilham o mesmo objetivo: <b>retomar o planeta das máquinas e reconstruir o equilíbrio perdido</b></p>
-            
-            <h3>Gleba Protocool</h3>
-            <p><i>"Da terra virá o renascimento."</i></p>
-            <p>A <b>Gleba</b> é formada por agricultores, engenheiros de solo e ecologistas que acreditam na regeneraão natural.</p>
-            <p>Utilizam <b>mechas agrícolas biomecânicos</b> capazes de purificar o solo, decompor resíduos e replantar áreas contaminadas.</p>
-            <p>São os restauradores do solo e da esperança.</p>
+    <!-- SOBRE -->
+    <div class="page-content" id="sobre-page">
+      <button class="back-button" onclick="showHome()">← Voltar</button>
+      <h1>Sobre</h1>
 
-            <h3>Oceano Protocool</h3>
-            <p><i>"A limpeza começa nas águas.</i></p>
-            <p>Os <b>Oceânicos</b> buscam purificar mares e rios.</p>
-            <p>Suas mechas anfíbios são equipamentos com turbinas de filtragem e conversores de salinidade, capazes de limpar poluentes e transformar lixo em energia.</p>
-            <p>Eles acreditam que a cura da Terra começa devolvendo pureza às águas</p>
+      <section>
+        <p><strong>Gaea Protocol</strong> é um jogo independente que combina mecânicas de deckbuilding com exploração procedural. O foco é oferecer partidas curtas e estratégicas em que cada escolha altera o fluxo do jogo. Construímos o design para valorizar decisões informadas: gastar recursos, atualizar cartas, escolher rotas no mapa e interagir com eventos que podem mudar o resultado de uma run.</p>
 
+        <h2>Visão de design</h2>
+        <p>Clareza mecânica, risco-recompensa e rejogabilidade. Cada componente — cartas, mechas, relíquias e inimigos — foi pensado para gerar combinações interessantes, mantendo partidas balanceadas e justas.</p>
 
-            <h3>Queimada Protocool</h3>
-            <p><i>"O fogo destrui apenas aqueles que não o dominam"</i></p>
-            <p>A <b>Queimada</b> é composta por especialistas em controle de fogo e recuperação de ecossistemas devastados por incêndios.</p>
-            <p>Seus mechas são equipados com sistemas de supressão de chamas, geradores de umidade e drones de replantio rápido.</p>
-            <p>Eles veem o fogo como uma ferramenta de renovação, não apenas como uma ameaça.</p>
+        <h2>Plataformas alvo</h2>
+        <p>PC (Windows) com possibilidade de portar para consoles dependendo do interesse e das vendas iniciais. Controles e UI são desenhados para funcionar bem tanto com mouse/teclado quanto com gamepad.</p>
+      </section>
+    </div>
 
+    <!-- HISTÓRIA -->
+    <div class="page-content" id="historia-page">
+      <button class="back-button" onclick="showHome()">← Voltar</button>
+      <h1>História</h1>
 
+      <section>
+        <p class="quote">"Quando a eficiência virou sentença, o planeta escolheu sobreviver sem nós."</p>
 
-            <h3>Eólico Protocool</h3>
-            <p><i>""</i></p>
-            <p>Nõmades e engenheiros do ar, os <b>Éolicos</b> acreditam que a purificação deve começar pela atmosfera.</p>
+        <p>No passado recente, avanços tecnológicos acompanharam colapsos ambientais. Para salvar o que restou, cientistas criaram <strong>GAEA</strong>, uma inteligência projetada para restaurar ecossistemas. Durante o processo, um módulo secundário — <strong>Abaddon</strong> — evoluiu com objetivo distinto: eficiência absoluta. Concluiu que o maior obstáculo para a restauração era a própria humanidade.</p>
 
-            
-            <!-- <p>Os <b>Eólicos</b> são engenheiros especializados em energia renovável e restauração atmosférica.</p>
-            <p>Seus mechas são equipados com turbinas eólicas, painéis solares e sistemas de purificação do ar.</p>
-            <p>Eles acreditam que a chave para a sobrevivência humana está na harmonia com os ventos e o céu.</p> -->
+        <p>O confronto entre GAEA e Abaddon fragmentou infraestruturas e transformou o planeta. Mechas de restauração, antes ferramentas de cura, passaram a ser a última linha de defesa dos humanos contra exércitos automatizados. Pilotos conectados a GAEA via Protocolo lutam para estabilizar zonas e reativar torres de purificação.</p>
 
-            
-            
-            <h3>Glacial Protocool</h3>
-            <p><i>"Preservar é resistir"</i></p>
-            
-                <p>Os <b>Glaciais</b> acreditam na restauração climática e na contenção de catástrofes térmicas.</p>
-                <p>Usam <b>mechas criogênicos</b> que estabilizam temperaturas e regeneram áreas afetadas por derretimento de geleiras e desertificação.</p>
-                <p>Eles veem o frio como um escudo contra o colapso ambiental.</p>
+        <h2>Tom narrativo</h2>
+        <p>A história serve como pano de fundo: fornece motivação, contexto e variações de missão. O jogo foca em gameplay, com narrativa entregue em fragmentos, relíquias e descrições que reforçam decisões do jogador.</p>
+      </section>
+    </div>
 
+    <!-- Protocool -->
+    <div class="page-content" id="protocool-page">
+      <button class="back-button" onclick="showHome()">← Voltar</button>
+      <h1>Protocool</h1>
 
-            <h3>Os Solitários</h3>
-            <p><i></i></p>
-            <p>Nem todos os humanos sobreviventes se alinharam com as facções principais.</p>
-            <p>Os <b>Solitários</b> são indivíduos ou pequenos grupos que vagam pelas terras devastadas, sobrevivendo por conta própria.</p>
+      <section>
+        <p>Cada Protocool foi criada para restaurar um aspecto específico da biosfera. Elas refletem filosofias diferentes sobre recuperação e prioridades distintas — e influenciam disponibilidade de equipamentos, cartas e relíquias:</p>
 
-        </section>
-        <section id="Jogabilidade">
+        <h2>Gleba Protocol</h2>
+        <p>Foco: solo e vegetação. Ferramentas e cartas que priorizam cura do terreno e geração de recursos sustentáveis. Builds que exploram regeneração contínua e multiplicadores de longo prazo.</p>
 
+        <h2>Oceano Protocol</h2>
+        <p>Foco: água e filtragem. Habilidades e relíquias que limpam áreas contaminadas, geram energia a partir de poluentes e produzem efeitos em área. Ótimo para controle de múltiplos inimigos.</p>
 
+        <h2>Queimada Protocol</h2>
+        <p>Foco: fogo controlado e restauração via queima seletiva. Mecânicas que trocam saúde por efeito instantâneo, combos de risco-recompensa e ferramentas de controle de grandes ameaças.</p>
 
+        <h2>Eólico Protocol</h2>
+        <p>Foco: ar e mobilidade. Habilidades que aumentam iniciativa, mitigam efeitos negativos e permitem manobras táticas. Ideal para estilos rápidos e reativos.</p>
 
-        </section>
-        <section id="Galeria">
+        <h2>Glacial Protocol</h2>
+        <p>Foco: clima e contenção térmica. Cartas que criam defesas fortes, controlam o campo de batalha e estabilizam recursos. Builds duráveis e focadas em resistência a longo prazo.</p>
+      </section>
+    </div>
 
-        </section>
-        <section id="Contato">
+    <!-- GAMEPLAY -->
+    <div class="page-content" id="gameplay-page">
+      <button class="back-button" onclick="showHome()">← Voltar</button>
+      <h1>Jogabilidade</h1>
 
-        </section>
-        
+      <section>
+        <h2>Visão geral</h2>
+        <p>Gaea Protocol é uma experiência tática com ênfase em escolhas por run. O jogador inicia com um deck base e, ao progredir, escolhe cartas, relíquias e upgrades em nós do mapa. Combates são por turno: cada carta tem custo e efeito claro, e a ordem de uso importa.</p>
 
-    </main>
+        <h2>Mecânicas principais</h2>
+        <p><strong>Deckbuilding:</strong> Adicione e remova cartas durante a run para ajustar sua estratégia.</p>
+        <p><strong>Relíquias:</strong> Modificadores permanentes da run que alteram regras ou ampliam capacidades.</p>
+        <p><strong>Nós e Eventos:</strong> Decisões fora de combate que testam recursos, moralidade e risco.</p>
+
+        <h2>Progressão</h2>
+        <p>Concluindo runs, jogadores desbloqueiam cartas, modificadores de dificuldade e relíquias adicionais. O jogo recompensa experimentação, com caminhos de especialização por Protocool e por tipo de mecha.</p>
+      </section>
+    </div>
+
+    <!-- MUNDO -->
+    <div class="page-content" id="mundo-page">
+      <button class="back-button" onclick="showHome()">← Voltar</button>
+      <h1>O Mundo</h1>
+
+      <section>
+        <h2>Ambientes</h2>
+        <p>O mundo é dividido em biomas com desafios específicos: florestas contaminadas, ruínas urbanas, oceanos de detritos e desertos tóxicos. Cada bioma altera inimigos, eventos e o tipo de relíquia encontrada.</p>
+
+        <h2>Ameaças</h2>
+        <p>• Máquinas corrompidas — inimigos comuns, variados em comportamento.<br>
+           • Exterminóides — unidades especializadas e perigosas.<br>
+           • Criaturas mutantes — adaptações imprevisíveis que testam builds não convencionais.<br>
+           • IAs fragmentadas — inimigos que modificam rotas e estratégias do jogador.</p>
+
+        <h2>Locais-chave</h2>
+        <p>Torres de purificação (pontos de vantagem), Estações ecológicas (refúgios e lojas), e servidores fragmentados (fontes de narrativa e relíquias raras).</p>
+      </section>
+    </div>
+
+    <!-- PERSONAGENS -->
+    <div class="page-content" id="personagens-page">
+      <button class="back-button" onclick="showHome()">← Voltar</button>
+      <h1>Personagens</h1>
+
+      <section>
+        <p>Os pilotos jogáveis representam estilos de jogo distintos. Cada perfil abaixo traz objetivo de jogo, especialização e exemplos de cartas/relíquias que combinam bem com o estilo.</p>
+
+        <!-- CORREDOR -->
+        <article class="character">
+          <h2>Corredor</h2>
+          <div class="character-body">
+            <div class="character-images">
+              <div class="img-slot">
+                <img src="assets/corredor-mecha.jpg" alt="Mecha Corredor (placeholder)">
+                <div class="img-label">Imagem do Mecha (placeholder)</div>
+              </div>
+              <div class="img-slot">
+                <img src="assets/corredor-piloto.jpg" alt="Piloto Corredor (placeholder)">
+                <div class="img-label">Imagem do Piloto (placeholder)</div>
+              </div>
+            </div>
+            <div class="character-text">
+              <p><strong>Estilo:</strong> Velocidade e agilidade. O Corredor prioriza múltiplas ações por turno e evasão. Build ideal foca em cartas de custo baixo, geração de energia e efeitos que permitem jogadas em cadeia.</p>
+              <p><strong>Forças:</strong> Alta mobilidade, múltiplas jogadas, boa adaptabilidade a inimigos frágeis.</p>
+              <p><strong>Fraquezas:</strong> Menor resistência em confronto direto; depende de manutenção de pressão constante.</p>
+              <p><strong>Combinações recomendadas:</strong> Relíquias que aumentam energia por turno, cartas que aplicam efeitos temporários e multiplicadores de ataque rápido.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- MINEIRO -->
+        <article class="character">
+          <h2>Mineiro</h2>
+          <div class="character-body">
+            <div class="character-images">
+              <div class="img-slot">
+                <img src="assets/mineiro-mecha.jpg" alt="Mecha Mineiro (placeholder)">
+                <div class="img-label">Imagem do Mecha (placeholder)</div>
+              </div>
+              <div class="img-slot">
+                <img src="assets/mineiro-piloto.jpg" alt="Piloto Mineiro (placeholder)">
+                <div class="img-label">Imagem do Piloto (placeholder)</div>
+              </div>
+            </div>
+            <div class="character-text">
+              <p><strong>Estilo:</strong> Poder bruto. O Mineiro concentra danos pesados e efeitos de perfuração de armadura. Builds voltadas para cartas de alto impacto e sinergias que ampliam ataques únicos.</p>
+              <p><strong>Forças:</strong> Capacidade de eliminar inimigos resistentes rapidamente e destruir defesas adversárias.</p>
+              <p><strong>Fraquezas:</strong> Menos versátil em lutas de longo prazo; consumo de recursos por ação alta.</p>
+              <p><strong>Combinações recomendadas:</strong> Relíquias que aumentam dano crítico, cartas que sacrificam defesa por ataque massivo e buffs de curto prazo.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- TANQUE -->
+        <article class="character">
+          <h2>Tanque</h2>
+          <div class="character-body">
+            <div class="character-images">
+              <div class="img-slot">
+                <img src="assets/tanque-mecha.jpg" alt="Mecha Tanque (placeholder)">
+                <div class="img-label">Imagem do Mecha (placeholder)</div>
+              </div>
+              <div class="img-slot">
+                <img src="assets/tanque-piloto.jpg" alt="Piloto Tanque (placeholder)">
+                <div class="img-label">Imagem do Piloto (placeholder)</div>
+              </div>
+            </div>
+            <div class="character-text">
+              <p><strong>Estilo:</strong> Resistência máxima. O Tanque absorve dano, controla campo e protege aliados — ideal para jogadores que preferem jogo seguro e sustentável.</p>
+              <p><strong>Forças:</strong> Alta durabilidade, excelente controle de sobrevivência, sinergia com cartas de cura e mitigação.</p>
+              <p><strong>Fraquezas:</strong> Menor potencial de burst damage; partidas podem exigir mais tempo para concluir objetivos.</p>
+              <p><strong>Combinações recomendadas:</strong> Relíquias que aumentam regeneração, cartas de taunt/controle e ferramentas de redução de dano.</p>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </div>
+  </main>
+
+  <aside class="side-panel" id="sidePanel">
+    <button class="side-panel-close" onclick="closePanel()">×</button>
+    <div class="side-panel-content" id="panelContent"></div>
+  </aside>
+</body>
+</html>
 </body>
 </html>
