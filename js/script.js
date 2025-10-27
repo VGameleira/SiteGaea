@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.openPanel = openPanel;
   window.closePanel = closePanel;
   window.showPage = showPage;
-  window.showHome = () => showPage('../index');
+  window.showHome = () => showPage('home');
 });
 
 /**
