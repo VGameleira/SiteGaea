@@ -99,17 +99,17 @@ function showPage(pageId) {
  * @param {string} pageName - Nome da página
  */
 function loadPage(pageName) {
-  fetch(`/pages/${pageName}.html`)
+  fetch(`${pageName}.html`)
     .then(response => response.text())
     .then(html => {
       const main = document.querySelector('.main-content');
       main.innerHTML = html;
-      document.body.style.overflow = pageName === 'home' ? 'hidden' : 'auto';
+      document.body.style.overflow = pageName === 'index' ? 'hidden' : 'auto';
       
       // Gerencia o footer
       const footer = document.querySelector('.site-footer');
       if (footer) {
-        footer.classList.toggle('show', pageName !== 'home');
+        footer.classList.toggle('show', pageName !== 'index');
       }
       
       window.scrollTo(0, 0);
@@ -128,16 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.showHome = () => showPage('../index');
 });
 
-/**
- * Configura os event listeners necessários
- * - Overlay para fechar o painel
- * - Observer para controle de scroll
- */
-function setupEventListeners() {
-  const overlay = document.getElementById('overlay');
-  if (overlay) {
-    overlay.addEventListener('click', closePanel);
-  }
+
 
   const sidePanel = document.getElementById('sidePanel');
   if (sidePanel) {
@@ -146,4 +137,4 @@ function setupEventListeners() {
     });
     observer.observe(sidePanel, { attributes: true, attributeFilter: ['class'] });
   }
-}
+
