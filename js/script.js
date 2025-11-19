@@ -96,14 +96,28 @@ function showPage(pageId) {
 
 /**
  * Carrega uma página do site
+ * Detecta automaticamente o caminho correto baseado na localização do arquivo
  * @param {string} pageName - Nome da página
  */
 function loadPage(pageName) {
-  fetch(`/pages/${pageName}.html`)
-    .then(response => response.text())
+  // Determina o caminho correto baseado na página atual
+  const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
+  const pagesPath = isHomePage ? 'pages/' : '';
+  
+  fetch(`${pagesPath}${pageName}.html`)
+    .then(response => {
+      if (!response.ok) throw new Error('Página não encontrada');
+      return response.text();
+    })
     .then(html => {
       const main = document.querySelector('.main-content');
-      main.innerHTML = html;
+      if (main) {
+        main.innerHTML = html;
+        // Reinicializa partículas na nova página
+        initParticles();
+        // Configura listeners para a nova página
+        setupEventListeners();
+      }
       document.body.style.overflow = pageName === 'home' ? 'hidden' : 'auto';
       
       // Gerencia o footer
@@ -113,20 +127,23 @@ function loadPage(pageName) {
       }
       
       window.scrollTo(0, 0);
-    });
+    })
+    .catch(error => console.error('Erro ao carregar página:', error));
 }
 
-// Inicialização do site quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', () => {
-  initParticles();
-  setupEventListeners();
-  
-  // Expõe funções necessárias globalmente
-  window.openPanel = openPanel;
-  window.closePanel = closePanel;
-  window.showPage = showPage;
-  window.showHome = () => showPage('home');
-});
+/**
+ * Volta para a página inicial
+ */
+function showHome() {
+  // Se já está na página inicial, apenas scroll para o topo
+  const isOnHome = document.getElementById('home') !== null;
+  if (isOnHome) {
+    window.scrollTo(0, 0);
+  } else {
+    // Se está em uma página filha, volta para o index
+    window.location.href = '../index.html';
+  }
+}
 
 /**
  * Configura os event listeners necessários
@@ -136,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function setupEventListeners() {
   const overlay = document.getElementById('overlay');
   if (overlay) {
+    overlay.removeEventListener('click', closePanel);
     overlay.addEventListener('click', closePanel);
   }
 
@@ -147,3 +165,51 @@ function setupEventListeners() {
     observer.observe(sidePanel, { attributes: true, attributeFilter: ['class'] });
   }
 }
+
+/**
+ * Alterna o menu móvel (abre/fecha o hambúrguer)
+ */
+function toggleMobileMenu() {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  
+  if (hamburger && navLinks) {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  }
+}
+
+/**
+ * Fecha o menu móvel quando um link é clicado
+ */
+function closeMobileMenu() {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  
+  if (hamburger && navLinks) {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+  }
+}
+
+// Inicialização do site quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', () => {
+  initParticles();
+  setupEventListeners();
+  
+  // Expõe funções necessárias globalmente
+  window.openPanel = openPanel;
+  window.closePanel = closePanel;
+  window.showPage = showPage;
+  window.showHome = showHome;
+  window.toggleMobileMenu = toggleMobileMenu;
+  window.closeMobileMenu = closeMobileMenu;
+  
+  // Fecha menu móvel quando clica em um link
+  const navLinks = document.getElementById('navLinks');
+  if (navLinks) {
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+  }
+});
